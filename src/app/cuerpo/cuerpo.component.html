@@ -1,0 +1,33 @@
+<div class="container bg-info">
+    <br>
+    <button class="btn btn-warning" (click)="show =! show">Mostrar tabla</button>
+    <button class="btn bg-dark text-white" (click)="fondo='bg-dark text-white'">negro</button>
+    <button class="btn bg-white text-dark" (click)="fondo='bg-white text-dark'">blanco</button>
+    <button class="btn bg-white text-dark" (click)="fondo='primero'">ocultar texto</button>
+
+    <table class="table" *ngIf="show">
+        <thead [ngClass]="fondo">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">animal</th>
+                <th scope="col">nombre</th>
+                <th scope="col">edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let anim of animales; index as i">
+                <th scope="row">{{i +1}}</th>
+                <td>{{anim.animal}}</td>
+                <td>{{anim.nombre}}</td>
+                <td>{{anim.edad}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+</div>
+
+<p [ngClass]="{'d-none':fondo=='primero'}">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique, repudiandae temporibus consequuntur dolor aut impedit tenetur officiis nobis! Eveniet necessitatibus non at quod voluptate beatae praesentium molestias libero sed! Facere!
+</p>
